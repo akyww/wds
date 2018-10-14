@@ -1,0 +1,10 @@
+Si 
+entero a = 3
+flotante b = 9.9
+
+si ( a > b )
+	imprimirPantalla(a)
+osino
+	########
+
+

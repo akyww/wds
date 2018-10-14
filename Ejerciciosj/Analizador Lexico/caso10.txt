@@ -1,0 +1,23 @@
+entero a1;
+
+@@entero a = 3
+	imprimirPantalla(a)
+	leerTeclado(a1)
+osino = Osino
+!=
+
+------------------------------------
+entero				PALABRA RESERVADA
+a1					IDENTIFICADOR
+imprimirPantalla	PALABRA RESERVADA
+(					DELIMITADOR
+a					IDENTIFICADOR
+)					PALABRA
+leerTeclado			PALABRA RESERVADA
+(					DELIMITADOR
+a1					IDENTIFICADOR
+)					DELIMITADOR
+osino				IDENTIFICADOR
+=					OPERADOR
+Osino				PALABRA RESERVADA
+!=					OPERADOR

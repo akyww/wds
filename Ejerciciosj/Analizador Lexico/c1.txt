@@ -1,0 +1,4 @@
+entero a = 12;
+flotante b = 5.5
+
+entero suma  = a + b;

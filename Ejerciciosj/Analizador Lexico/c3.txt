@@ -1,0 +1,7 @@
+flotante a = 3;
+entero 	 b = 3.2;
+
+Mientras ¿ ?
+{
+	Si = a;
+	a = b;

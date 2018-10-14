@@ -1,0 +1,12 @@
+entero;
+;;
+##
+entero si = 3;
+{
+	B = 3;
+	MIENTRAS = 0;
+	mIENTRAS
+	___$$a = b;
+}
+
+#

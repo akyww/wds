@@ -1,0 +1,7 @@
+
+Programa [programa1]
+{
+	entero a;
+
+}
+

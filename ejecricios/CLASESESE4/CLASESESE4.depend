@@ -1,0 +1,88 @@
+# depslib dependency file v1.0
+1498159096 source:c:\users\joel\desktop\ejecricios\clasesese4\alumno.cpp
+	"Alumno.h"
+
+1498159240 c:\users\joel\desktop\ejecricios\clasesese4\alumno.h
+	"Persona.h"
+	"Curso.h"
+
+1497985418 c:\users\joel\desktop\ejecricios\clasesese4\persona.h
+	<string>
+
+1498158832 c:\users\joel\desktop\ejecricios\clasesese4\curso.h
+	<string>
+
+1498158808 source:c:\users\joel\desktop\ejecricios\clasesese4\curso.cpp
+	"Curso.h"
+
+1499116662 source:c:\users\joel\desktop\ejecricios\clasesese4\main.cpp
+	"Persona.h"
+	"Alumno.h"
+	"Profesor.h"
+	"Planilla.h"
+	<iostream>
+	<string>
+	<cmath>
+	<cstdlib>
+
+1497985250 c:\users\joel\desktop\ejecricios\clasesese4\profesor.h
+	"Persona.h"
+	<string>
+
+1498158054 c:\users\joel\desktop\ejecricios\clasesese4\planilla.h
+	"Profesor.h"
+
+1497381442 source:c:\users\joel\desktop\ejecricios\clasesese4\persona.cpp
+	"Persona.h"
+
+1498158380 source:c:\users\joel\desktop\ejecricios\clasesese4\planilla.cpp
+	"Planilla.h"
+	<iostream>
+
+1497985958 source:c:\users\joel\desktop\ejecricios\clasesese4\profesor.cpp
+	"Profesor.h"
+
+1499142892 source:c:\users\joel\desktop\hi\alumno.cpp
+	"Alumno.h"
+
+1498159240 c:\users\joel\desktop\hi\alumno.h
+	"Persona.h"
+	"Curso.h"
+
+1497985418 c:\users\joel\desktop\hi\persona.h
+	<string>
+
+1498158832 c:\users\joel\desktop\hi\curso.h
+	<string>
+
+1498158808 source:c:\users\joel\desktop\hi\curso.cpp
+	"Curso.h"
+
+1499142892 source:c:\users\joel\desktop\hi\persona.cpp
+	"Persona.h"
+
+1499144367 source:c:\users\joel\desktop\hi\planilla.cpp
+	"Planilla.h"
+	<iostream>
+
+1499138514 c:\users\joel\desktop\hi\planilla.h
+	"Profesor.h"
+	"Alumno.h"
+
+1497985250 c:\users\joel\desktop\hi\profesor.h
+	"Persona.h"
+	<string>
+
+1497985958 source:c:\users\joel\desktop\hi\profesor.cpp
+	"Profesor.h"
+
+1499144998 source:c:\users\joel\desktop\hi\main.cpp
+	"Persona.h"
+	"Alumno.h"
+	"Profesor.h"
+	"Planilla.h"
+	<iostream>
+	<string>
+	<cmath>
+	<cstdlib>
+

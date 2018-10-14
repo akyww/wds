@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1504583113 source:c:\users\joel\desktop\ejecricios\tarea comp\main.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+
