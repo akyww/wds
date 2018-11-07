@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[119]:
+# In[190]:
 
 
 import numpy as np
@@ -14,29 +14,35 @@ import os
 
 
 iris = pd.read_csv('iris.csv')
-vinos = 0
+vinos = pd.read_csv('vinos.txt')
 
 data = np.matrix(iris)
 x = PCA(n_components=2)
 
 datasets = x.fit_transform(data)
 
-#print(datasets)
+dataV = np.matrix(vinos)
+dataVinos = x.fit_transform(dataV)
+
+# print(dataVinos)
+# print(datasets)
 
 def cluster_colors(lists,data):
     
     colors = []
     for i in data:
-        for j in lists:
-            condition = any([compa.all() for compa in i == j])
-            if condition:
-                tmp = lists.index(j)
+        for j in range(len(lists)):
+            condition = any([compa.all() for compa in i == lists[j]])
+            if condition: 
+                tmp = j
+                break
         colors.append(tmp)
     
     return colors
 
 def clustering(data,centroids,num_clusters):
     
+    print('s')
     lists = [[centroids[i]] for i in range(num_clusters)] 
     for i in data:
         flag   = 0
@@ -50,27 +56,30 @@ def clustering(data,centroids,num_clusters):
                 minimo = dis
                 flag = j
         lists[flag].append(i)
+
     return lists
 
-def graph(x,y,cColors,cont):
+def graph(x,y,cColors,cont,centroids,folder):
     
     plt.scatter(x, y, c=cColors)
-    output_path = os.path.join('D:\kmeans_iris',str(cont)+'.png')
+    for c in centroids:
+        plt.scatter(c[0],c[1],s=100,c='r',marker='X')
+    output_path = os.path.join(folder,str(cont)+'.png')
     plt.savefig(output_path)
     plt.show()
     plt.close()
 
-def k_means(data,num_clusters):
+def k_means(data,num_clusters,folder,x,y):
     
     k = 0
     end = False
     centroids = random.sample(list(data), num_clusters)
-    
+    #centroids = np.random.randint(0, 10, (num_clusters, 2))
+    print(centroids)
+    temp_random = centroids
     while(end!=True):
-        k+=1
         print(k)
         lists = clustering(data,centroids,num_clusters)
-        
         cont = 0
         newCentroids = []
         for i in range(len(lists)):
@@ -83,117 +92,40 @@ def k_means(data,num_clusters):
 
         centroids = newCentroids
         colors = cluster_colors(lists,data)
-    
-        print(colors)
-        graph(datasets[:, 0], datasets[:, 1], colors,k)
-        
-
-k_means(datasets,3)
-
-
-
-
-
-# In[ ]:
-
-
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-import random
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
-from scipy.spatial import distance
-
-
-iris = pd.read_csv('iris.csv')
-
-data = np.matrix(iris)
-x = PCA(n_components=2)
-
-datasets = x.fit_transform(data)
-
-#print(datasets)
-
-#plt.figure(figsize=(12, 12))
-
-y_pred = KMeans(n_clusters=3).fit_predict(datasets)
-
-def euclidian_distance(data,num_clusters):
-    k = 0
-    end = False
-    random_centroids = random.sample(list(data), num_clusters)
-    while(end!=True):
+        if k is 0:
+            graph(x, y, colors,k,temp_random,folder)
+        graph(x, y, colors,k,centroids,folder)
         k+=1
-        print(k)
-        lists = distance_E(data,random_centroids,num_clusters)
-#         lists = [[random_centroids[i]] for i in range(num_clusters)] 
-# #         for i in lists:
-# #             print(i, 'another list')
-
-
-#        
-#         for i in data:
-#             disTmp = 0
-#             flag   = 0
-#             for j in range(len(random_centroids)):
-#                 temp = disTmp
-#                 dis = distance.euclidean(i,random_centroids[j])
-#                 disTmp = dis
-#                 if(dis<temp):
-#                     tmp  = dis
-#                     flag = j
-#         #         print(flag)
-#             lists[flag].append(i)
-
-
-#         suma = 0
-#         for i in lists:
-#             suma = suma + len(i)
-#             print(i,"asdf---------------------------->",len(i))
-#         print(suma)
-        cont = 0
-        newCentroids = []
-        for i in range(len(lists)):
-            mean = (np.mean(lists[i], axis=0))
-            if(np.array_equal(mean,random_centroids[i])):
-                cont += 1
-            if(cont==num_clusters):
-                end = True;
-            #print(mean)
-            newCentroids.append(mean)
-
-        random_centroids = newCentroids
         
         
-        
+#k_means(datasets,3,'D:\kmeans_iris',datasets[:, 0],datasets[:, 1])
 
-def kMeans(n_clusters,data):
+k_means(dataVinos,3,'D:\kmeans_vinos',dataVinos[:,0],dataVinos[:,1])
 
-    random_centroids = random.sample(list(data), n_clusters)
+
+
+# In[168]:
+
+
+x = [1,2,3]
+y = [3, 2,1]
+
+
+C = [4,1,2]
+area = [2000,2000,2000]
+centroid = [1,3]
+
+plt.scatter(x,y,s=area,c=C)
+
+cen = [[ 1.27799588, -0.32739624], [ 2.33165373, -0.04311693], [3.4724999 , 1.16855166]]
+
+for c in cen:
+    plt.scatter(c[0],c[1],c='k',marker='X')
     
-    a = [2,3,4,2]
-    b = [1,-2,1,3]
-
-    dis  = distance.euclidean(a,b)
     
-    suma = 0
-    for i in range(len(a)):
-        suma = suma + np.power(a[i]-b[i],2)
-    
+centroids = random.sample(range(1,149), 3)
 
-    euclidean = np.sqrt(suma)
-    print(euclidean)
-    print(dis,np.power(3,3))
-    
+randomc = np.random.randint(0, 150, (3, 2))
 
-#plt.subplot(221)
-#plt.scatter(datasets[:, 0], datasets[:, 1], c=y_pred)
-#plt.title("Incorrect Number of Blobs")
-
-#kMeans(3,datasets)
-
-
-euclidian_distance(datasets,3)
-
+print(randomc)
 
